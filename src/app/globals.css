@@ -1,26 +1,398 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: 255 255 255;
+    --text: 17 24 39;
+    --muted: 107 114 128;
+    --border: 229 231 235;
+    --success: 34 197 94;
+    --warning: 245 158 11;
+    --danger: 239 68 68;
+  }
+
+  .dark {
+    --bg: 17 24 39;
+    --text: 249 250 251;
+    --muted: 156 163 175;
+    --border: 55 65 81;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variation-settings: normal;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-sm;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 text-sm;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:shadow-md hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm;
+  }
+
+  .section-padding {
+    @apply py-10 sm:py-14 lg:py-16 xl:py-20;
+  }
+
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Responsive text utilities - More compact sizing */
+  .text-responsive-xs {
+    @apply text-xs;
+  }
+
+  .text-responsive-sm {
+    @apply text-sm;
+  }
+
+  .text-responsive-base {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-lg {
+    @apply text-base sm:text-lg;
+  }
+
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  .text-responsive-4xl {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  .text-responsive-5xl {
+    @apply text-4xl sm:text-5xl;
+  }
+
+  .text-responsive-6xl {
+    @apply text-5xl sm:text-6xl;
+  }
+
+  .text-responsive-7xl {
+    @apply text-6xl sm:text-7xl;
+  }
+
+  /* Responsive spacing utilities - More compact */
+  .space-responsive-xs {
+    @apply space-y-1.5 sm:space-y-2;
+  }
+
+  .space-responsive-sm {
+    @apply space-y-2 sm:space-y-3;
+  }
+
+  .space-responsive-base {
+    @apply space-y-3 sm:space-y-4;
+  }
+
+  .space-responsive-lg {
+    @apply space-y-4 sm:space-y-6;
+  }
+
+  .space-responsive-xl {
+    @apply space-y-6 sm:space-y-8;
+  }
+
+  /* Responsive padding utilities - More compact */
+  .p-responsive-sm {
+    @apply p-2 sm:p-3;
+  }
+
+  .p-responsive-base {
+    @apply p-3 sm:p-4;
+  }
+
+  .p-responsive-lg {
+    @apply p-4 sm:p-6;
+  }
+
+  .p-responsive-xl {
+    @apply p-6 sm:p-8;
+  }
+
+  /* Responsive margin utilities - More compact */
+  .m-responsive-sm {
+    @apply m-2 sm:m-3;
+  }
+
+  .m-responsive-base {
+    @apply m-3 sm:m-4;
+  }
+
+  .m-responsive-lg {
+    @apply m-4 sm:m-6;
+  }
+
+  .m-responsive-xl {
+    @apply m-6 sm:m-8;
+  }
+
+  /* Responsive gap utilities - More compact */
+  .gap-responsive-sm {
+    @apply gap-2 sm:gap-3;
+  }
+
+  .gap-responsive-base {
+    @apply gap-3 sm:gap-4;
+  }
+
+  .gap-responsive-lg {
+    @apply gap-4 sm:gap-6;
+  }
+
+  .gap-responsive-xl {
+    @apply gap-6 sm:gap-8;
+  }
+
+  /* Responsive icon utilities - More compact */
+  .icon-responsive-sm {
+    @apply h-3 w-3 sm:h-4 sm:w-4;
+  }
+
+  .icon-responsive-base {
+    @apply h-4 w-4 sm:h-5 sm:w-5;
+  }
+
+  .icon-responsive-lg {
+    @apply h-5 w-5 sm:h-6 sm:w-6;
+  }
+
+  .icon-responsive-xl {
+    @apply h-6 w-6 sm:h-8 sm:w-8;
+  }
+
+  .icon-responsive-2xl {
+    @apply h-8 w-8 sm:h-10 sm:w-10;
+  }
+
+  .icon-responsive-3xl {
+    @apply h-10 w-10 sm:h-12 sm:w-12;
+  }
+
+  /* Responsive border radius utilities - More compact */
+  .rounded-responsive-sm {
+    @apply rounded-md sm:rounded-lg;
+  }
+
+  .rounded-responsive-base {
+    @apply rounded-lg sm:rounded-xl;
+  }
+
+  .rounded-responsive-lg {
+    @apply rounded-xl sm:rounded-2xl;
+  }
+
+  .rounded-responsive-xl {
+    @apply rounded-2xl sm:rounded-3xl;
+  }
+
+  /* Compact button utilities */
+  .btn-compact {
+    @apply py-1.5 px-3 text-sm rounded-md;
+  }
+
+  .btn-compact-lg {
+    @apply py-2 px-4 text-sm rounded-lg;
+  }
+
+  .btn-compact-xl {
+    @apply py-2.5 px-5 text-sm rounded-lg;
+  }
+
+  /* Compact spacing utilities */
+  .space-compact-xs {
+    @apply space-y-1;
+  }
+
+  .space-compact-sm {
+    @apply space-y-1.5;
+  }
+
+  .space-compact-base {
+    @apply space-y-2;
+  }
+
+  .space-compact-lg {
+    @apply space-y-3;
+  }
+
+  .space-compact-xl {
+    @apply space-y-4;
+  }
+
+  /* Compact padding utilities */
+  .p-compact-xs {
+    @apply p-1.5;
+  }
+
+  .p-compact-sm {
+    @apply p-2;
+  }
+
+  .p-compact-base {
+    @apply p-2.5;
+  }
+
+  .p-compact-lg {
+    @apply p-3;
+  }
+
+  .p-compact-xl {
+    @apply p-4;
+  }
+
+  /* Compact margin utilities */
+  .m-compact-xs {
+    @apply m-1.5;
+  }
+
+  .m-compact-sm {
+    @apply m-2;
+  }
+
+  .m-compact-base {
+    @apply m-2.5;
+  }
+
+  .m-compact-lg {
+    @apply m-3;
+  }
+
+  .m-compact-xl {
+    @apply m-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Responsive visibility utilities */
+  .visible-mobile {
+    @apply block sm:hidden;
+  }
+
+  .visible-desktop {
+    @apply hidden sm:block;
+  }
+
+  .visible-tablet-up {
+    @apply hidden md:block;
+  }
+
+  .visible-tablet-down {
+    @apply block md:hidden;
+  }
+
+  /* Responsive grid utilities */
+  .grid-responsive-1 {
+    @apply grid-cols-1;
+  }
+
+  .grid-responsive-2 {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .grid-responsive-3 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-responsive-4 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  /* Responsive flex utilities */
+  .flex-responsive-col {
+    @apply flex-col sm:flex-row;
+  }
+
+  .flex-responsive-row {
+    @apply flex-row sm:flex-col;
+  }
+
+  /* Responsive positioning utilities */
+  .absolute-responsive-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .absolute-responsive-top {
+    @apply absolute top-3 sm:top-4;
+  }
+
+  .absolute-responsive-bottom {
+    @apply absolute bottom-3 sm:bottom-4;
+  }
+
+  .absolute-responsive-left {
+    @apply absolute left-3 sm:left-4;
+  }
+
+  .absolute-responsive-right {
+    @apply absolute right-3 sm:right-4;
+  }
+
+  /* Text alignment utilities */
+  .text-align-responsive-left {
+    @apply text-left;
+  }
+
+  .text-align-responsive-center {
+    @apply text-center;
+  }
+
+  .text-align-responsive-right {
+    @apply text-right;
+  }
+
+  /* Compact container utilities */
+  .container-compact {
+    @apply max-w-5xl mx-auto px-3 sm:px-4 lg:px-6;
+  }
+
+  .container-compact-sm {
+    @apply max-w-4xl mx-auto px-3 sm:px-4;
+  }
+
+  /* Compact section utilities */
+  .section-compact {
+    @apply py-8 sm:py-10 lg:py-12;
+  }
+
+  .section-compact-sm {
+    @apply py-6 sm:py-8 lg:py-10;
+  }
 }
