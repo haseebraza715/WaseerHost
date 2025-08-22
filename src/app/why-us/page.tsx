@@ -367,7 +367,7 @@ const WhyUsPage = () => {
               What makes us different
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We don't just promise better hosting - we deliver it with measurable results and real guarantees.
+              We don&apos;t just promise better hosting - we deliver it with measurable results and real guarantees.
             </p>
           </div>
           
@@ -506,7 +506,7 @@ const WhyUsPage = () => {
               Our core values
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              These aren't just words on a wall - they're the principles that guide every decision we make.
+              These aren&apos;t just words on a wall - they&apos;re the principles that guide every decision we make.
             </p>
           </div>
           
@@ -548,7 +548,7 @@ const WhyUsPage = () => {
               What our customers say
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Don't just take our word for it - hear from real customers who've experienced the difference.
+              Don&apos;t just take our word for it - hear from real customers who&apos;ve experienced the difference.
             </p>
           </div>
           

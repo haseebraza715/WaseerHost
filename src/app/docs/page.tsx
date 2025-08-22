@@ -30,7 +30,7 @@ interface DocCategory {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
   color: string;
   bgColor: string;
   articles: number;
@@ -183,7 +183,7 @@ const DocsPage = () => {
     },
   ];
 
-  const popularArticles = [
+  const popularArticles = useMemo(() => [
     {
       title: 'How to install WordPress with one click',
       description: 'Complete guide to installing WordPress using our one-click installer',
@@ -224,7 +224,7 @@ const DocsPage = () => {
       category: 'Control Panel',
       lastUpdated: '5 days ago',
     },
-  ];
+  ], []);
 
   const recentUpdates = [
     {
@@ -271,7 +271,7 @@ const DocsPage = () => {
     }
     
     return articles;
-  }, [searchQuery, selectedCategory, selectedDifficulty]);
+  }, [searchQuery, selectedCategory, selectedDifficulty, popularArticles]);
 
   const toggleBookmark = (articleId: string) => {
     const newBookmarks = new Set(bookmarkedArticles);

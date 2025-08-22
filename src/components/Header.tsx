@@ -59,7 +59,7 @@ const Header = () => {
       setCurrentMessageIndex((prev) => (prev + 1) % topBarMessages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [topBarMessages.length]);
 
   return (
     <header className="relative">
