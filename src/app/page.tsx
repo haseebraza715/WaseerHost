@@ -1,20 +1,23 @@
 import Hero from '@/components/Hero'
+import HostingPlans from '@/components/HostingPlans'
 import Features from '@/components/Features'
-import PlanTeaser from '@/components/PlanTeaser'
+import FreeFeatures from '@/components/FreeFeatures'
+import ScalableTechnology from '@/components/ScalableTechnology'
+import WhatMakesDifferent from '@/components/WhatMakesDifferent'
+import TechnicalSupport from '@/components/TechnicalSupport'
 import Testimonials from '@/components/Testimonials'
-import FAQ from '@/components/FAQ'
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <HostingPlans />
       <Features />
-      <PlanTeaser />
+      <FreeFeatures />
+      <ScalableTechnology />
+      <WhatMakesDifferent />
+      <TechnicalSupport />
       <Testimonials />
-      <FAQ 
-        maxItems={6}
-        className="bg-white dark:bg-gray-800"
-      />
     </>
   )
 }
